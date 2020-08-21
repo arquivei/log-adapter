@@ -9,7 +9,7 @@ class TraceIdProcessor implements ProcessorInterface
 {
     private ?string $traceId = null;
 
-    public function __invoke(array $records)
+    public function __invoke(array $records): array
     {
         $records['trace_id'] = $this->getTraceId();
         return $records;

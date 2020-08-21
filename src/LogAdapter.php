@@ -10,6 +10,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Processor\MemoryPeakUsageProcessor;
 use Monolog\Processor\MemoryUsageProcessor;
 use Monolog\Formatter\JsonFormatter;
+use Monolog\Processor\ProcessorInterface;
 use stdClass;
 
 class LogAdapter implements Log
@@ -18,18 +19,21 @@ class LogAdapter implements Log
     private TraceIdProcessor $traceIdProcessor;
     private DynamicContextProcessor $dynamicContextProcessor;
 
-    public function __construct()
+    public function __construct(array $processors = [])
     {
+        $stream = env('LOGGER_STREAM', 'php://stdout');
+        $loggerLevel = env('LOGGER_LEVEL', 200);
+        $loggerName = env('LOGGER_NAME', 'arquivei_log_adapter');
+
         $this->traceIdProcessor = new TraceIdProcessor();
         $this->dynamicContextProcessor = new DynamicContextProcessor();
-        $levelDebug = env('APP_DEBUG', false);
-        $handler = new StreamHandler("php://stdout", (bool)$levelDebug ? Logger::DEBUG : Logger::INFO);
 
+        $handler = new StreamHandler($stream, $loggerLevel);
         $handler->setFormatter(new JsonFormatter());
+        $this->logger = new Logger($loggerName);
+        $this->logger->pushHandler($handler);
 
-        $this->logger = (new Logger(env('LOGGER_NAME', 'arquivei_log_adapter')))
-            ->pushHandler($handler)
-            ->pushProcessor(new MemoryUsageProcessor())
+        $this->logger->pushProcessor(new MemoryUsageProcessor())
             ->pushProcessor(new MemoryPeakUsageProcessor())
             ->pushProcessor(new DateTimeProcessor())
             ->pushProcessor($this->traceIdProcessor)

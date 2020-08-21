@@ -24,7 +24,8 @@ class DynamicContextProcessorTest extends TestCase
             ],
             'User' => 123
         ];
-        $dynamicContextProcessor = new DynamicContextProcessor($map, $stdClass);
+        $dynamicContextProcessor = new DynamicContextProcessor($map);
+        $dynamicContextProcessor->setStdClass($stdClass);
         $expected = $dynamicContextProcessor($records);
 
         $this->assertSame($expected['context']['number'], 1234567890);
