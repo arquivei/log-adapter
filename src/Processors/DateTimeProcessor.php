@@ -13,7 +13,7 @@ class DateTimeProcessor implements ProcessorInterface
         $this->format = $format;
     }
 
-    public function __invoke(array $records)
+    public function __invoke(array $records): array
     {
         $records['datetime'] = $records['datetime']->format($this->format);
         return $records;

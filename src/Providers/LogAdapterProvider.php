@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Arquivei\LogAdapter\Providers;
 
 use Arquivei\LogAdapter\Log;
@@ -11,7 +10,8 @@ use Illuminate\Support\ServiceProvider;
 
 class LogAdapterProvider extends ServiceProvider
 {
-    public function boot() {
+    public function boot()
+    {
 
         if (env('BOOT_SET_LOGGER_TRACE_ID_MIDDLEWARE', true)) {
             $kernel = $this->app->make(Kernel::class);
