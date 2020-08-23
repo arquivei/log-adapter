@@ -45,6 +45,12 @@ $logger->info('Logging', [
 composer tests
 ```
 
+### Full quality checks
+
+``` bash
+composer check
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
@@ -55,15 +61,9 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 docker build -f development.Dockerfile -t arquivei/php:7.4-development .
 ```
 
-
 ### Security
 
 If you discover any security related issues, please email andre.gomes@arquivei.com.br instead of using the issue tracker.
-
-## Credits
-
-- [André Luis Gomes](https://github.com/arquivei)
-- [All Contributors](../../contributors)
 
 ## License
 
