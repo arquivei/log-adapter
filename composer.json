@@ -41,7 +41,7 @@
 		}
 	},
 	"scripts": {
-		"phpstan": "./vendor/bin/phpstan analyse src/",
+		"phpstan": "./vendor/bin/phpstan analyse src/ --level=5",
 		"phpcs": "./vendor/bin/phpcs src --standard=PSR12 -p",
 		"phpcbf": "./vendor/bin/phpcbf src --standard=PSR12 -p",
 		"tests": "./vendor/bin/phpunit tests/",
@@ -49,8 +49,7 @@
 		"check": [
 			"@phpstan",
 			"@phpcs",
-			"@tests",
-			"@coverage"
+			"@tests"
 		]
 	}
 }

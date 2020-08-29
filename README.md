@@ -1,9 +1,11 @@
 # Arquivei Log Adapter
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/arquivei/log-adapter.svg?style=flat-square)](https://packagist.org/packages/arquivei/log-adapter)
-[![Build Status](https://img.shields.io/travis/arquivei/log-adapter/master.svg?style=flat-square)](https://travis-ci.org/arquivei/log-adapter)
-[![Quality Score](https://img.shields.io/scrutinizer/g/arquivei/log-adapter.svg?style=flat-square)](https://scrutinizer-ci.com/g/arquivei/log-adapter)
 [![Total Downloads](https://img.shields.io/packagist/dt/arquivei/log-adapter.svg?style=flat-square)](https://packagist.org/packages/arquivei/log-adapter)
+![PHP Composer](https://github.com/arquivei/log-adapter/workflows/PHP%20Composer/badge.svg?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/arquivei/log-adapter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/arquivei/log-adapter/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/arquivei/log-adapter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/arquivei/log-adapter/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/arquivei/log-adapter/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
 A Monolog wrapper as Laravel Package.
 
