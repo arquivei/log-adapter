@@ -19,7 +19,7 @@ class LogAdapter implements Log
     private TraceIdProcessor $traceIdProcessor;
     private DynamicContextProcessor $dynamicContextProcessor;
 
-    public function __construct(array $processors = [])
+    public function __construct()
     {
         $stream = env('LOGGER_STREAM', 'php://stdout');
         $loggerLevel = env('LOGGER_LEVEL', 200);
