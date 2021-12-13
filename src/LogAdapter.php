@@ -2,15 +2,13 @@
 
 namespace Arquivei\LogAdapter;
 
-use Arquivei\LogAdapter\Processors\DateTimeProcessor;
 use Arquivei\LogAdapter\Processors\DynamicContextProcessor;
 use Arquivei\LogAdapter\Processors\TraceIdProcessor;
-use Monolog\Logger;
+use Monolog\Formatter\JsonFormatter;
 use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Monolog\Processor\MemoryPeakUsageProcessor;
 use Monolog\Processor\MemoryUsageProcessor;
-use Monolog\Formatter\JsonFormatter;
-use Monolog\Processor\ProcessorInterface;
 use stdClass;
 
 class LogAdapter implements Log
@@ -35,7 +33,6 @@ class LogAdapter implements Log
 
         $this->logger->pushProcessor(new MemoryUsageProcessor())
             ->pushProcessor(new MemoryPeakUsageProcessor())
-            ->pushProcessor(new DateTimeProcessor())
             ->pushProcessor($this->traceIdProcessor)
             ->pushProcessor($this->dynamicContextProcessor);
     }
